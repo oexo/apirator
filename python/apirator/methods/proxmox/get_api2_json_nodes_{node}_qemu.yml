@@ -1,0 +1,51 @@
+methods:
+  - name: get_api2_json_nodes_{node}_qemu
+    url: /nodes/{node}/qemu
+    method: 
+      get:
+        parameters:
+          required: 
+            - node
+          optional:
+            - full
+        returns:
+          obligatory:
+            - vmid
+            - status
+          optional:
+      post:
+        parameters:
+          required: 
+            - node
+            - vmid
+          optional:
+            - full
+        returns:
+          obligatory:
+          optional:
+
+
+parameters: 
+  - name: node
+    key: node # by default, the key is equal to the name
+    type: string
+    format: <string>
+    description: The cluster node name
+  - name: full
+    type: boolean
+    format: <boolean>
+    description: determine
+  - name: vmid
+    type: integer
+    format: <integer> (1 - N)
+    description: The (unique) ID of the VM.
+
+returns:
+  - name: vmid
+    type: integer
+    format: pve-vmid
+    description: The (unique) ID of the VM.
+  - name: status
+    type: enum
+    format: stopped|running
+    description: The (unique) ID of the VM.
